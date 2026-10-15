@@ -1,24 +1,20 @@
-# TinyWasm
+# WebTyp
 
-### Build full-stack web apps in **pure Go** — tiny WebAssembly bundles, zero JS toolchain, built for the age of AI assistants.
+### Software you cultivate, not software that piles up.
 
-TinyWasm is an ecosystem of Go libraries (and a batteries-included dev environment) for building web apps where **Go is the only language** — backend, frontend, and shared logic — compiled to the frontend via WebAssembly with the **smallest possible binary** (TinyGo-first).
+Full-stack web applications in **Go** — backend, frontend and shared logic in one language, compiled to the browser as small WebAssembly. Typed components, simple architecture, for humans and for AI.
 
-👉 **Start here:** [**tinywasm/app**](https://github.com/tinywasm/app) — the TUI dev environment with live reload, MCP for AI assistants, and one-command setup (installation and quick start live there).
+👉 **Start here:** [**webtyp/app**](https://github.com/webtyp/app) — install the `webtyp` binary and build. **Why it exists, who it's for and its honest limits:** [**WHY.md**](https://github.com/webtyp/app/blob/main/docs/WHY.md) · [Español](https://github.com/webtyp/app/blob/main/docs/WHY.es.md)
 
 ---
 
 ## Why you might love it
 
-- 🟦 **One language everywhere** — share types, validation, and logic across client and server. No TypeScript, no npm, no bundlers.
-- 🪶 **Tiny WASM** — ~200 KB–2 MB depending on mode; TinyGo-first, no hidden allocations.
-- 🤖 **Built for AI** — a Model Context Protocol server lets assistants see your UI, read logs, and control compilation.
-- 🧰 **Typed construction harness** — APIs designed so the code is easy to read and hard to get wrong: the compiler rejects mistakes, so even an assistant that doesn't know a library builds correctly.
-- 🔧 **Zero config** — your project structure *is* the configuration.
-
-## The size problem it solves
-
-Go's WebAssembly potential is huge, but standard-library packages (`fmt`, `strings`, `strconv`, `errors`) bloat binaries — hurting web performance, edge deployment, and distribution. TinyWasm provides **lightweight, TinyGo-compatible implementations** with a familiar API: drastic size reduction, no compilation warnings, predictable performance.
+- 🟦 **One language everywhere** — share types, validation and logic across client and server. No TypeScript, no npm, no bundlers.
+- 🧱 **Typed components** — a component is a Go type; the compiler checks how components fit together.
+- 🔧 **Simple architecture** — the project layout *is* the configuration. Conventions, without magic.
+- 🤖 **Human or AI** — the TUI (`webtyp dev`) and the MCP daemon (`webtyp mcp`) drive the same project, so a developer or an agent builds inside the same structure.
+- 🪶 **Tiny WASM** — TinyGo-first, with lightweight replacements for `fmt`, `json` and `time` that keep the browser binary small.
 
 ---
 
@@ -28,37 +24,37 @@ The libraries you'll use to build apps. The **Activity** badge shows each repo's
 
 | Package | Description | Activity |
 | :--- | :--- | :--- |
-| [app](https://github.com/tinywasm/app) | Full stack TUI development environment with live reload, test, deploy, CI/CD for web applications (PWA). | [![last commit](https://img.shields.io/github/last-commit/tinywasm/app?label=&color=2ea44f)](https://github.com/tinywasm/app/commits) |
-| [binary](https://github.com/tinywasm/binary) | High-performance binary serialization library for Go, specifically designed for TinyGo compatibility. | [![last commit](https://img.shields.io/github/last-commit/tinywasm/binary?label=&color=2ea44f)](https://github.com/tinywasm/binary/commits) |
-| [components](https://github.com/tinywasm/components) | HTML components for the go web framework tinywasm. | [![last commit](https://img.shields.io/github/last-commit/tinywasm/components?label=&color=2ea44f)](https://github.com/tinywasm/components/commits) |
-| [context](https://github.com/tinywasm/context) | Minimalist context library for TinyGo. | [![last commit](https://img.shields.io/github/last-commit/tinywasm/context?label=&color=2ea44f)](https://github.com/tinywasm/context/commits) |
-| [crypto](https://github.com/tinywasm/crypto) | CryptoAutoLib port for TinyGo. | [![last commit](https://img.shields.io/github/last-commit/tinywasm/crypto?label=&color=2ea44f)](https://github.com/tinywasm/crypto/commits) |
-| [deploy](https://github.com/tinywasm/deploy) | Automated deployment service for Go applications. | [![last commit](https://img.shields.io/github/last-commit/tinywasm/deploy?label=&color=2ea44f)](https://github.com/tinywasm/deploy/commits) |
-| [devflow](https://github.com/tinywasm/devflow) | Complete Go development automation: project init, testing, versioning, updates, and backups. | [![last commit](https://img.shields.io/github/last-commit/tinywasm/devflow?label=&color=2ea44f)](https://github.com/tinywasm/devflow/commits) |
-| [dom](https://github.com/tinywasm/dom) | Ultra-minimal DOM & event toolkit for Go (TinyGo WASM-optimized). | [![last commit](https://img.shields.io/github/last-commit/tinywasm/dom?label=&color=2ea44f)](https://github.com/tinywasm/dom/commits) |
-| [fetch](https://github.com/tinywasm/fetch) | A lightweight Go library that unifies HTTP requests across environments. | [![last commit](https://img.shields.io/github/last-commit/tinywasm/fetch?label=&color=2ea44f)](https://github.com/tinywasm/fetch/commits) |
-| [fmt](https://github.com/tinywasm/fmt) | Lightweight Go library that provides comprehensive string manipulation and formatting. | [![last commit](https://img.shields.io/github/last-commit/tinywasm/fmt?label=&color=2ea44f)](https://github.com/tinywasm/fmt/commits) |
-| [form](https://github.com/tinywasm/form) | Form generation using DOM and structs. | [![last commit](https://img.shields.io/github/last-commit/tinywasm/form?label=&color=2ea44f)](https://github.com/tinywasm/form/commits) |
-| [goflare](https://github.com/tinywasm/goflare) | Lightweight handler for building and deploying Go-based WebAssembly and JavaScript modules to Cloudflare. | [![last commit](https://img.shields.io/github/last-commit/tinywasm/goflare?label=&color=2ea44f)](https://github.com/tinywasm/goflare/commits) |
-| [imagemin](https://github.com/tinywasm/imagemin) | Image size reduction tool for web projects. | [![last commit](https://img.shields.io/github/last-commit/tinywasm/imagemin?label=&color=2ea44f)](https://github.com/tinywasm/imagemin/commits) |
-| [indexdb](https://github.com/tinywasm/indexdb) | IndexDB implementation with WebAssembly compiled with Go. | [![last commit](https://img.shields.io/github/last-commit/tinywasm/indexdb?label=&color=2ea44f)](https://github.com/tinywasm/indexdb/commits) |
-| [json](https://github.com/tinywasm/json) | A lightweight JSON wrapper for Go that optimizes WebAssembly binary size. | [![last commit](https://img.shields.io/github/last-commit/tinywasm/json?label=&color=2ea44f)](https://github.com/tinywasm/json/commits) |
-| [jsvalue](https://github.com/tinywasm/jsvalue) | Efficient conversions between JavaScript and Go for a WebAssembly environment. | [![last commit](https://img.shields.io/github/last-commit/tinywasm/jsvalue?label=&color=2ea44f)](https://github.com/tinywasm/jsvalue/commits) |
-| [kvdb](https://github.com/tinywasm/kvdb) | TinyGo–compatible key–value store with a minimal API. | [![last commit](https://img.shields.io/github/last-commit/tinywasm/kvdb?label=&color=2ea44f)](https://github.com/tinywasm/kvdb/commits) |
-| [mcp](https://github.com/tinywasm/mcp) | Go implementation of the Model Context Protocol (MCP). | [![last commit](https://img.shields.io/github/last-commit/tinywasm/mcp?label=&color=2ea44f)](https://github.com/tinywasm/mcp/commits) |
-| [pdf](https://github.com/tinywasm/pdf) | PDF library designed for web rendering with WebAssembly, optimized for TinyGo compatibility. | [![last commit](https://img.shields.io/github/last-commit/tinywasm/pdf?label=&color=2ea44f)](https://github.com/tinywasm/pdf/commits) |
-| [postgres](https://github.com/tinywasm/postgres) | PostgreSQL adapter implementing the `tinywasm/orm` Adapter interface. | [![last commit](https://img.shields.io/github/last-commit/tinywasm/postgres?label=&color=2ea44f)](https://github.com/tinywasm/postgres/commits) |
-| [sqlite](https://github.com/tinywasm/sqlite) | WebAssembly-first port of modernc.org/sqlite. | [![last commit](https://img.shields.io/github/last-commit/tinywasm/sqlite?label=&color=2ea44f)](https://github.com/tinywasm/sqlite/commits) |
-| [sse](https://github.com/tinywasm/sse) | Client and event server, SSE protocol compatible with TinyGo. | [![last commit](https://img.shields.io/github/last-commit/tinywasm/sse?label=&color=2ea44f)](https://github.com/tinywasm/sse/commits) |
-| [time](https://github.com/tinywasm/time) | TinyGo-compatible time package for Go. | [![last commit](https://img.shields.io/github/last-commit/tinywasm/time?label=&color=2ea44f)](https://github.com/tinywasm/time/commits) |
-| [unixid](https://github.com/tinywasm/unixid) | Go library for generating unique, time-based IDs using Unix timestamps. | [![last commit](https://img.shields.io/github/last-commit/tinywasm/unixid?label=&color=2ea44f)](https://github.com/tinywasm/unixid/commits) |
-| [user](https://github.com/tinywasm/user) | User management library. | [![last commit](https://img.shields.io/github/last-commit/tinywasm/user?label=&color=2ea44f)](https://github.com/tinywasm/user/commits) |
+| [app](https://github.com/webtyp/app) | Full stack TUI development environment with live reload, test, deploy, CI/CD for web applications (PWA). | [![last commit](https://img.shields.io/github/last-commit/webtyp/app?label=&color=2ea44f)](https://github.com/webtyp/app/commits) |
+| [binary](https://github.com/webtyp/binary) | High-performance binary serialization library for Go, specifically designed for TinyGo compatibility. | [![last commit](https://img.shields.io/github/last-commit/webtyp/binary?label=&color=2ea44f)](https://github.com/webtyp/binary/commits) |
+| [components](https://github.com/webtyp/components) | HTML components for the WebTyp Go web framework. | [![last commit](https://img.shields.io/github/last-commit/webtyp/components?label=&color=2ea44f)](https://github.com/webtyp/components/commits) |
+| [context](https://github.com/webtyp/context) | Minimalist context library for TinyGo. | [![last commit](https://img.shields.io/github/last-commit/webtyp/context?label=&color=2ea44f)](https://github.com/webtyp/context/commits) |
+| [crypto](https://github.com/webtyp/crypto) | CryptoAutoLib port for TinyGo. | [![last commit](https://img.shields.io/github/last-commit/webtyp/crypto?label=&color=2ea44f)](https://github.com/webtyp/crypto/commits) |
+| [deploy](https://github.com/webtyp/deploy) | Automated deployment service for Go applications. | [![last commit](https://img.shields.io/github/last-commit/webtyp/deploy?label=&color=2ea44f)](https://github.com/webtyp/deploy/commits) |
+| [devflow](https://github.com/webtyp/devflow) | Complete Go development automation: project init, testing, versioning, updates, and backups. | [![last commit](https://img.shields.io/github/last-commit/webtyp/devflow?label=&color=2ea44f)](https://github.com/webtyp/devflow/commits) |
+| [dom](https://github.com/webtyp/dom) | Ultra-minimal DOM & event toolkit for Go (TinyGo WASM-optimized). | [![last commit](https://img.shields.io/github/last-commit/webtyp/dom?label=&color=2ea44f)](https://github.com/webtyp/dom/commits) |
+| [fetch](https://github.com/webtyp/fetch) | A lightweight Go library that unifies HTTP requests across environments. | [![last commit](https://img.shields.io/github/last-commit/webtyp/fetch?label=&color=2ea44f)](https://github.com/webtyp/fetch/commits) |
+| [fmt](https://github.com/webtyp/fmt) | Lightweight Go library that provides comprehensive string manipulation and formatting. | [![last commit](https://img.shields.io/github/last-commit/webtyp/fmt?label=&color=2ea44f)](https://github.com/webtyp/fmt/commits) |
+| [form](https://github.com/webtyp/form) | Form generation using DOM and structs. | [![last commit](https://img.shields.io/github/last-commit/webtyp/form?label=&color=2ea44f)](https://github.com/webtyp/form/commits) |
+| [goflare](https://github.com/webtyp/goflare) | Lightweight handler for building and deploying Go-based WebAssembly and JavaScript modules to Cloudflare. | [![last commit](https://img.shields.io/github/last-commit/webtyp/goflare?label=&color=2ea44f)](https://github.com/webtyp/goflare/commits) |
+| [imagemin](https://github.com/webtyp/imagemin) | Image size reduction tool for web projects. | [![last commit](https://img.shields.io/github/last-commit/webtyp/imagemin?label=&color=2ea44f)](https://github.com/webtyp/imagemin/commits) |
+| [indexdb](https://github.com/webtyp/indexdb) | IndexDB implementation with WebAssembly compiled with Go. | [![last commit](https://img.shields.io/github/last-commit/webtyp/indexdb?label=&color=2ea44f)](https://github.com/webtyp/indexdb/commits) |
+| [json](https://github.com/webtyp/json) | A lightweight JSON wrapper for Go that optimizes WebAssembly binary size. | [![last commit](https://img.shields.io/github/last-commit/webtyp/json?label=&color=2ea44f)](https://github.com/webtyp/json/commits) |
+| [jsvalue](https://github.com/webtyp/jsvalue) | Efficient conversions between JavaScript and Go for a WebAssembly environment. | [![last commit](https://img.shields.io/github/last-commit/webtyp/jsvalue?label=&color=2ea44f)](https://github.com/webtyp/jsvalue/commits) |
+| [kvdb](https://github.com/webtyp/kvdb) | TinyGo–compatible key–value store with a minimal API. | [![last commit](https://img.shields.io/github/last-commit/webtyp/kvdb?label=&color=2ea44f)](https://github.com/webtyp/kvdb/commits) |
+| [mcp](https://github.com/webtyp/mcp) | Go implementation of the Model Context Protocol (MCP). | [![last commit](https://img.shields.io/github/last-commit/webtyp/mcp?label=&color=2ea44f)](https://github.com/webtyp/mcp/commits) |
+| [pdf](https://github.com/webtyp/pdf) | PDF library designed for web rendering with WebAssembly, optimized for TinyGo compatibility. | [![last commit](https://img.shields.io/github/last-commit/webtyp/pdf?label=&color=2ea44f)](https://github.com/webtyp/pdf/commits) |
+| [postgres](https://github.com/webtyp/postgres) | PostgreSQL adapter implementing the `webtyp/orm` Adapter interface. | [![last commit](https://img.shields.io/github/last-commit/webtyp/postgres?label=&color=2ea44f)](https://github.com/webtyp/postgres/commits) |
+| [sqlite](https://github.com/webtyp/sqlite) | WebAssembly-first port of modernc.org/sqlite. | [![last commit](https://img.shields.io/github/last-commit/webtyp/sqlite?label=&color=2ea44f)](https://github.com/webtyp/sqlite/commits) |
+| [sse](https://github.com/webtyp/sse) | Client and event server, SSE protocol compatible with TinyGo. | [![last commit](https://img.shields.io/github/last-commit/webtyp/sse?label=&color=2ea44f)](https://github.com/webtyp/sse/commits) |
+| [time](https://github.com/webtyp/time) | TinyGo-compatible time package for Go. | [![last commit](https://img.shields.io/github/last-commit/webtyp/time?label=&color=2ea44f)](https://github.com/webtyp/time/commits) |
+| [unixid](https://github.com/webtyp/unixid) | Go library for generating unique, time-based IDs using Unix timestamps. | [![last commit](https://img.shields.io/github/last-commit/webtyp/unixid?label=&color=2ea44f)](https://github.com/webtyp/unixid/commits) |
+| [user](https://github.com/webtyp/user) | User management library. | [![last commit](https://img.shields.io/github/last-commit/webtyp/user?label=&color=2ea44f)](https://github.com/webtyp/user/commits) |
 
 ---
 
-## Get involved
+## Follow the project
 
-We're building a **Go-first web ecosystem** and welcome contributions — Go ports of browser APIs, performance tools, starter templates, docs, and bug reports.
+WebTyp is in active development by one person ([@cdvelop](https://github.com/cdvelop)) and is being proven on a real application before a wider release.
 
-- 💬 [Discussions](https://github.com/tinywasm/app/discussions) · 🐞 [Issues](https://github.com/tinywasm/app/issues)
+- 👀 Follow releases: [webtyp/app](https://github.com/webtyp/app) → *Watch → Custom → Releases*.
 - ⭐ Star the libraries you find useful — it helps others discover the ecosystem.
